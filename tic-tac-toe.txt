@@ -1,0 +1,7 @@
+Attempted to create a 2nd box for tic-tac-toe by duplicating code:
+- Resulted in the webpage crashing, I suspect it could be due to there being no specification about what this button is or where it's meant to go.
+- Once the markers <></> were added it works, but it automatically formats them moving to the right as a continuous line.
+
+Added in a 3x3 grid of boxes:
+- Using <div> to act as mini-containers for each row, I am successfully able to stack 3 rows of 3 on top of each other to make a 3x3 grid of boxes with numbers 1-9.
+- I suspect the reason why this works is because
