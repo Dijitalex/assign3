@@ -14,3 +14,11 @@ Reworked square() function:
 
 Making each square a button:
 - By nesting a click function, I am able to have console.log register clicks (needed to open f12 to see it on my own environment)
+- After implementing value and setValue, they are updated upon the click of the button.
+
+Redefining the structure to support X's and O's:
+- Each square now has an onSquareClick component to it now, passing the function handleClick()
+- Now upon each click a single X gets entered in the array's position 0, but this makes sense as only nextSqures[0] has been implemented so far.
+- After implementing the arrow function and pasing an argument to the function, we are now back to the original state!
+- Implementing an if else statement allows alternating between X's and O's, but overriding of existing squares is allowed
+- Adding a quick "if it already exists" conditional remedies this.
