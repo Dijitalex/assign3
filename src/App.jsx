@@ -3,22 +3,31 @@ import * as ReactBootstrap from 'react-bootstrap'
 
 const { Badge, Button, Card } = ReactBootstrap
 
-export default function Square() {
+function Square({value}){
+  function handleClick(){
+    console.log("Clicked!")
+  }
+  return(
+    <button className="square" onClick={handleClick}></button>
+  )
+}
+
+export default function Board() {
   return <>
   <div className = "board-row">
-    <button className="square">1</button>
-    <button className="square">2</button>
-    <button className="square">3</button>
+    <Square value="1" />
+    <Square value="2"/>
+    <Square value="3"/>
   </div>
   <div className = "board-row">
-    <button className="square">X</button>
-    <button className="square">X</button>
-    <button className="square">X</button>
+    <Square value="3"/>
+    <Square value="3"/>
+    <Square value="3"/>
   </div>
   <div className = "board-row">
-    <button className="square">X</button>
-    <button className="square">X</button>
-    <button className="square">X</button>
+    <Square value="3"/>
+    <Square value="3"/>
+    <Square value="3"/>
   </div>
   </>;
 }

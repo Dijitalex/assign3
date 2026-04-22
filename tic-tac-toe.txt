@@ -4,4 +4,13 @@ Attempted to create a 2nd box for tic-tac-toe by duplicating code:
 
 Added in a 3x3 grid of boxes:
 - Using <div> to act as mini-containers for each row, I am successfully able to stack 3 rows of 3 on top of each other to make a 3x3 grid of boxes with numbers 1-9.
-- I suspect the reason why this works is because
+- I suspect the reason why this works is because of the formating in CSS, which I would really like to learn more about but unfortunately it appears that's not a focus of this class. ;-;
+
+Reworked square() function:
+- Now the code is much cleaner, but now arises the issue of the board being all 1's for now.
+- Okay and now it's solved by passing an argument into the function
+- However when we implement it as {value} each box has the string literal "value"
+- Now it's been fixed with more {}, and I was able to implement the numbers on my own!
+
+Making each square a button:
+- By nesting a click function, I am able to have console.log register clicks (needed to open f12 to see it on my own environment)
