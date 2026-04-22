@@ -22,3 +22,8 @@ Redefining the structure to support X's and O's:
 - After implementing the arrow function and pasing an argument to the function, we are now back to the original state!
 - Implementing an if else statement allows alternating between X's and O's, but overriding of existing squares is allowed
 - Adding a quick "if it already exists" conditional remedies this.
+
+Implementation of a way to win the game:
+- Added the calcuate winner function:
+ - Lists all possible winning combinations
+ - Checks to see if all those values are filled with a valid type of the same letter
