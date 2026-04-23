@@ -1,0 +1,32 @@
+Steps to implement Chorus Lapilli:
+
+From the base tic tac toe skeleton, change modes one three X's and three O's are on the board.
+- Implemented chorusMode, a counter that ticks to 6 (signalling 3 O's and 3 X's), when the counter ticks past 6, the game changes
+- Change "setXIsNext(!xIsNext)" to no longer automatically run once chorusMode has changed.
+
+Although it's optional, a new color component is going to be added to the array to enhance UX and better show hwo to implement this game iteratively.
+- Add a new backgroundColor component to the button in Square()
+- Like how the array squares keeps track of how the game board looks, a new squareColor array is going to added that tracks the color of each square, which will be white (#000) by default.
+- For the board, be sure to define each Square component to be mapped to this array i.e. through color={squareColor[i]}
+
+Nest the original tic-tac-toe code in an if(!chorusMode) block and set a new else block that follows:
+- Within this else block create two new if else blocks, one for when it's X's turn and one for when it's O's turn.
+- Now from here, we need to implement a system where the player selects a respective marker and clicks a new place to put it.
+- Create another conditional statement block:
+    - if (for marker selection):
+        - Set all tiles to be white (in case tiles were highlighted by a previous action)
+        - Given that the first clicked square is of the same team as the player, highlight that square blue
+        - Highlight all adjacent squares yellow (note I was not able to find an automated way to do this, this will need to be done manually for each square).
+    - else if (for moving a marker):
+        - Given that an empty yellow square has been clicked on, have the yellow square take on the new value while the old square (highlighted in blue) is now null.
+        - Also needs to make sure this move is valid by the middle square rule (to be implemented later)
+    - else (invalid move):
+        - In the case where the player selects a tile that is empty or not of their team, do nothing (return).
+
+With the main gameplay loop being finished, we also need to make sure a move is valid.
+- Create a new boolean function called validateMove(chr, jprev, jnew), passing arguments of the team (X or O), the position of the current marker, and the position of the marker it wants to move to.
+- Create a new copy of the game array with squares.slice()
+- Model what the game board would look like if this hypothetical move was to be made.
+- If the before and after states of the board kept a marker in the middle AND the player would not have won that turn, the play was invalid, thus the function should return false
+- Otherwise return true
+- Implement this function into the else if block mentioned above (every time a marker gets moved)

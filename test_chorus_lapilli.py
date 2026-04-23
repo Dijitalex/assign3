@@ -155,6 +155,73 @@ class TestChorusLapilli(unittest.TestCase):
         tiles[0].click()
         self.assertTileIs(tiles[0], self.SYMBOL_X)
 
+    def personal_test1(self):
+        '''Check if a simple win is accounted for, as well as some unnecessary extra clicks'''
+        tiles = self.driver.find_elements(By.XPATH, self.BOARD_TILE_XPATH)
+        self.assertTileIs(tiles[0], self.SYMBOL_BLANK)
+        tiles[0].click()
+        tiles[1].click()
+        tiles[3].click()
+        tiles[4].click()
+        tiles[3].click()
+        tiles[4].click()
+        tiles[6].click()
+        tiles[7].click()
+        self.assertTileIs(tiles[0], self.SYMBOL_X)
+        self.assertTileIs(tiles[1], self.SYMBOL_O)
+        self.assertTileIs(tiles[3], self.SYMBOL_X)
+        self.assertTileIs(tiles[4], self.SYMBOL_O)
+        self.assertTileIs(tiles[6], self.SYMBOL_X)
+        self.assertTileIs(tiles[7], self.SYMBOL_BLANK)
+
+    def personal_test2(self):
+        '''Check if basic tile-swapping is implelented, along with some misclicks'''
+        tiles = self.driver.find_elements(By.XPATH, self.BOARD_TILE_XPATH)
+        tiles[0].click()
+        tiles[3].click()
+        tiles[6].click()
+        tiles[7].click()
+        tiles[8].click()
+        tiles[5].click()
+        tiles[5].click()
+        tiles[8].click()
+        tiles[0].click()
+        tiles[1].click()
+        self.assertTileIs(tiles[0], self.SYMBOL_BLANK)
+        self.assertTileIs(tiles[0], self.SYMBOL_X)
+        self.assertTileIs(tiles[8], self.SYMBOL_X)
+
+    def personal_test3(self):
+        '''Check if game accounts for the middle tile rule'''
+        tiles = self.driver.find_elements(By.XPATH, self.BOARD_TILE_XPATH)
+        self.assertTileIs(tiles[0], self.SYMBOL_BLANK)
+        tiles[0].click()
+        tiles[1].click()
+        tiles[2].click()
+        tiles[3].click()
+        tiles[4].click()
+        tiles[6].click()
+        tiles[3].click()
+        tiles[4].click() #invalid move!
+        tiles[4].click()
+        tiles[5].click()
+        tiles[3].click()
+        tiles[4].click()
+        tiles[5].click()
+        tiles[0].click()
+        tiles[3].click()
+        tiles[6].click()
+        tiles[7].click() #valid as O wins from this play
+        self.assertTileIs(tiles[0], self.SYMBOL_BLANK)
+        self.assertTileIs(tiles[1], self.SYMBOL_O)
+        self.assertTileIs(tiles[2], self.SYMBOL_X)
+        self.assertTileIs(tiles[3], self.SYMBOL_X)
+        self.assertTileIs(tiles[4], self.SYMBOL_O)
+        self.assertTileIs(tiles[5], self.SYMBOL_X)
+        self.assertTileIs(tiles[6], self.SYMBOL_BLANK)
+        self.assertTileIs(tiles[7], self.SYMBOL_O)
+        self.assertTileIs(tiles[7], self.SYMBOL_BLANK)
+
 
 # ================= [DO NOT MAKE ANY CHANGES BELOW THIS LINE] =================
 

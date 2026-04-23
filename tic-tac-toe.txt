@@ -27,3 +27,16 @@ Implementation of a way to win the game:
 - Added the calcuate winner function:
  - Lists all possible winning combinations
  - Checks to see if all those values are filled with a valid type of the same letter
+- Within Board(), the calculateWinner() function is called. Now text is outputted based on the status of the game, now there's some basic but necessary UI!
+
+Implementation of game history:
+- Set Game() to be the new export default function
+- Set history to be an array of an array of (currently) null values
+- Create a function handlePlay() that updates history to keep track of the game board over time while also alternating between X and O.
+- Implemented work-in-progress UI for leting the user revert back to previous game states if they so wish. Currently the website is not functioning.
+
+Implementation of game history (part 2):
+- Added a key system so that past game states can be easily refered to
+- Added a system to remove the relevant history if reverting back to a certain state.
+- Game() now renders the current move instead of the most "recent move"
+- Now the game has pop-up buttons that let the player go back to a previous state if they so wish. The game is now fully functional!
